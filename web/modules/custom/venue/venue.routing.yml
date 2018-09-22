@@ -1,0 +1,11 @@
+
+venue.google_token_form:
+  path: '/admin/config/venue/googletoken'
+  defaults:
+    _form: '\Drupal\venue\Form\GoogleTokenForm'
+    _title: 'GoogleTokenForm'
+  requirements:
+    _permission: 'access administration pages'
+  options:
+    _admin_route: TRUE
+

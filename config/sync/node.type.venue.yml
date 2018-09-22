@@ -1,0 +1,20 @@
+uuid: e1e51578-4693-44c0-afdb-51450182a474
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - title
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+  title:
+    display_configurable_title: true
+name: Venue
+type: venue
+description: 'The place where the meetup will happen'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

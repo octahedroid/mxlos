@@ -1,0 +1,30 @@
+uuid: 93f3e793-bfce-43cc-a0db-f917d982df07
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.session.field_speaker
+    - field.field.paragraph.session.field_topic
+    - paragraphs.paragraphs_type.session
+id: paragraph.session.default
+targetEntityType: paragraph
+bundle: session
+mode: default
+content:
+  field_speaker:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_topic:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }

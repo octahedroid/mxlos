@@ -1,0 +1,5 @@
+name: 'venue'
+type: module
+description: 'Venue module map'
+core: 8.x
+package: 'Custom'

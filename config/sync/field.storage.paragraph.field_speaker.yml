@@ -1,0 +1,21 @@
+uuid: a76793be-b94e-4234-9336-ac6130e3f3dd
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_speaker
+field_name: field_speaker
+entity_type: paragraph
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

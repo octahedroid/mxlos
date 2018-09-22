@@ -1,0 +1,20 @@
+uuid: e4123188-4864-4d7b-9f2b-65c1595321c3
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - title
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+  title:
+    display_configurable_title: true
+name: Event
+type: event
+description: 'This is the event for the meetup'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

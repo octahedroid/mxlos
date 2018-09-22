@@ -1,0 +1,33 @@
+uuid: 281bdb55-a001-40d5-a0c2-2a76b48f81d6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.session.field_speaker
+    - field.field.paragraph.session.field_topic
+    - paragraphs.paragraphs_type.session
+id: paragraph.session.default
+targetEntityType: paragraph
+bundle: session
+mode: default
+content:
+  field_speaker:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_topic:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

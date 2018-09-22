@@ -1,0 +1,53 @@
+uuid: 07dd3aa6-8914-4dd2-b76a-6131d85daa9f
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.venue.body
+    - field.field.node.venue.field_address
+    - field.field.node.venue.field_image
+    - field.field.node.venue.field_map
+    - image.style.thumbnail
+    - node.type.venue
+  module:
+    - image
+    - text
+    - title
+    - user
+id: node.venue.teaser
+targetEntityType: node
+bundle: venue
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 0
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  field_image:
+    type: image
+    weight: 1
+    region: content
+    label: above
+    settings:
+      image_style: thumbnail
+      image_link: ''
+    third_party_settings: {  }
+  title:
+    type: linked_and_wrapped
+    settings:
+      tag: h2
+      linked: true
+      classes: ''
+    weight: -5
+    label: above
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_address: true
+  field_map: true
+  links: true

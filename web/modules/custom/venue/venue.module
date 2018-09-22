@@ -1,0 +1,61 @@
+<?php
+
+/**
+ * @file
+ * Contains event.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\file\Entity\File;
+
+/**
+ * Implements hook_help().
+ */
+function venue_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the event module.
+    case 'help.page.event':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Venue module map') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+function venue_form_node_venue_edit_form_alter(
+  &$form,
+  FormStateInterface $form_state
+) {
+  $form['field_map']['#disabled'] = TRUE;
+}
+
+function venue_node_presave(EntityInterface $node) {
+  if ($node->bundle() === 'venue') {
+
+    if (!$node->get('field_address')->getValue()) {
+      return;
+    }
+
+    $address = current($node->get('field_address')->getValue());
+    $address = preg_replace("/\r|\n/", "", $address['value']);
+
+
+    /** @var \Drupal\venue\MapServiceInterface $mapService */
+    $mapService = \Drupal::service('venue.map');
+    $uuid = $node->uuid();
+
+    $fileId = $mapService->download(
+      $address,
+      "$uuid.png"
+    );
+
+    $node->set('field_map',[
+      'target_id' => $fileId
+    ]);
+  }
+
+}

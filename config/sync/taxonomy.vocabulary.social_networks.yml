@@ -1,0 +1,9 @@
+uuid: a1e20253-50d6-414a-a4ac-722b59aa0b17
+langcode: en
+status: true
+dependencies: {  }
+name: 'Social Networks'
+vid: social_networks
+description: ''
+hierarchy: 0
+weight: 0
