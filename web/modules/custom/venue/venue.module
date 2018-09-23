@@ -48,13 +48,13 @@ function venue_node_presave(EntityInterface $node) {
     $mapService = \Drupal::service('venue.map');
     $uuid = $node->uuid();
 
-    $fileId = $mapService->download(
+    $file = $mapService->download(
       $address,
       "$uuid.png"
     );
 
     $node->set('field_map',[
-      'target_id' => $fileId
+      'target_id' => $file->id()
     ]);
   }
 
