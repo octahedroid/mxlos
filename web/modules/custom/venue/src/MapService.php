@@ -36,10 +36,16 @@ class MapService implements MapServiceInterface {
    * @var \Drupal\Core\Config\ConfigFactoryInterface
    */
   protected $configFactory;
+
   /**
    * Constructs a new MapService object.
    */
-  public function __construct(FileSystemInterface $file_system, ClientInterface $http_client, EntityTypeManagerInterface $entity_type_manager, ConfigFactoryInterface $config_factory) {
+  public function __construct(
+    FileSystemInterface $file_system,
+    ClientInterface $http_client,
+    EntityTypeManagerInterface $entity_type_manager,
+    ConfigFactoryInterface $config_factory
+  ) {
     $this->fileSystem = $file_system;
     $this->httpClient = $http_client;
     $this->entityTypeManager = $entity_type_manager;
@@ -65,9 +71,7 @@ class MapService implements MapServiceInterface {
     $this->httpClient
       ->get($url, ['save_to' => $fileRealPath]);
 
-    $file = $this->createImage($filePath);
-
-    return $file->id();
+    return $this->createImage($filePath);
   }
 
   private function createImage($uri) {
