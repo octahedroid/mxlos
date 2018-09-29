@@ -58,3 +58,13 @@ function venue_node_presave(EntityInterface $node) {
   }
 
 }
+
+function venue_theme() {
+  return [
+    'venue_map_block' => [
+      'variables' => [
+        'map_config' => [],
+      ],
+    ],
+  ];
+}

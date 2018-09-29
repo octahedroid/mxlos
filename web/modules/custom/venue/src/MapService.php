@@ -58,8 +58,9 @@ class MapService implements MapServiceInterface {
 
     $mapKey = $config->get('token_key');
     $zoom = $config->get('zoom');
+    $maptype = $config->get('maptype');
 
-    $url = "https://maps.googleapis.com/maps/api/staticmap?center=$address&zoom=$zoom&size=600x300&maptype=roadmap&key=$mapKey";
+    $url = "https://maps.googleapis.com/maps/api/staticmap?center=$address&zoom=$zoom&size=600x300&maptype=$maptype&key=$mapKey";
     $mapDirectory = "public://google/static";
     $filePath = "$mapDirectory/$fileName";
     if (!is_dir($this->fileSystem->realpath($mapDirectory))) {
