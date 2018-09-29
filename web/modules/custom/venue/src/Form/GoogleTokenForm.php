@@ -33,6 +33,7 @@ class GoogleTokenForm extends ConfigFormBase {
     $config = $this->config('venue.googletoken');
     $form['token_key'] = [
       '#type' => 'textfield',
+      '#required' => TRUE,
       '#title' => $this->t('Token Key'),
       '#description' => $this->t('Enter google api key'),
       '#maxlength' => 64,
@@ -42,9 +43,25 @@ class GoogleTokenForm extends ConfigFormBase {
     $form['zoom'] = [
       '#type' => 'number',
       '#title' => $this->t('Zoom'),
+      '#required' => TRUE,
       '#description' => $this->t('Enter zoom'),
       '#default_value' => $config->get('zoom'),
     ];
+
+    $form['maptype'] = [
+      '#type' => 'select',
+      '#title' => $this->t('Map Types'),
+      '#description' => $this->t('Select the Map Type'),
+      '#required' => TRUE,
+      '#options' => [
+        'roadmap' =>'roadmap',
+        'satellite' => 'satellite',
+        'hybrid' => 'hybrid',
+        'terrain' => 'terrain'
+      ],
+      '#default_value' => $config->get('maptype'),
+    ];
+
     return parent::buildForm($form, $form_state);
   }
 
@@ -64,6 +81,7 @@ class GoogleTokenForm extends ConfigFormBase {
     $this->config('venue.googletoken')
       ->set('token_key', $form_state->getValue('token_key'))
       ->set('zoom', $form_state->getValue('zoom'))
+      ->set('maptype', $form_state->getValue('maptype'))
       ->save();
   }
 

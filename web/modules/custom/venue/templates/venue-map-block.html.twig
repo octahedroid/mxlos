@@ -1,0 +1,12 @@
+<h2>Map Config</h2>
+{#{{ dump(map_config) }}#}
+<ul>
+{% for key, value in map_config %}
+    {#<li> {{ key ~ ': ' ~ value }} </li>#}
+    {#<li> <strong>{{ key }}:</strong> {{ value }} </li>#}
+    <li>
+      <div class="config-key">{{ key }}:</div>
+      <div class="config-value">{{ value }}</div>
+    </li>
+{% endfor %}
+</ul>
